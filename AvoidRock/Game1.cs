@@ -10,7 +10,7 @@ namespace AvoidRock
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        public SpriteBatch spriteBatch;
 
         public Game1()
         {
