@@ -11,6 +11,7 @@ namespace AvoidRock
     {
         GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
+        public Scene.StartScene startScene;
 
         public Game1()
         {
@@ -42,6 +43,10 @@ namespace AvoidRock
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            startScene = new Scene.StartScene(this);
+            this.Components.Add(startScene);
+            startScene.show();
 
             // TODO: use this.Content to load your game content here
         }
