@@ -13,7 +13,7 @@ namespace AvoidRock.Scene
         private Menu.StartSceneMenu menu;
         private SpriteBatch spriteBatch;
         private string[] menuItems =
-            { "Start Game",
+            { "Play",
             "High Score",
             "Help",
             "About",

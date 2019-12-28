@@ -12,6 +12,9 @@ namespace AvoidRock
         GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         public Scene.StartScene startScene;
+        public Scene.PlayScene playGame;
+
+        private double timer = 0;
 
         public Game1()
         {
@@ -48,6 +51,9 @@ namespace AvoidRock
             this.Components.Add(startScene);
             startScene.show();
 
+            playGame = new Scene.PlayScene(this);
+            this.Components.Add(playGame);
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -67,10 +73,24 @@ namespace AvoidRock
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            int selectedIndex = 0;
 
-            // TODO: Add your update logic here
+            KeyboardState ks = Keyboard.GetState();
+            if (startScene.Enabled)
+            {
+                timer += (double)gameTime.ElapsedGameTime.TotalSeconds;
+                selectedIndex = startScene.Menu.SelectedIndex;
+
+                if (timer > 0.3)
+                {
+                    if (selectedIndex == 0 && ks.IsKeyDown(Keys.Enter))
+                    {
+                        playGame.show();
+                        startScene.hide();
+                        timer = 0;
+                    }
+                }
+            }
 
             base.Update(gameTime);
         }
