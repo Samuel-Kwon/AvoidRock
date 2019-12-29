@@ -25,6 +25,7 @@ namespace AvoidRock
         private Hero hero;
         private Rock rock;
         private Score score;
+        private Level level;
 
         public PlayScene(Game game) : base(game)
         {
@@ -46,6 +47,11 @@ namespace AvoidRock
             Vector2 scorePosition = new Vector2(0, 0);
             score = new Score(g, spriteBatch, font, scorePosition, timer, Color.White);
             this.Components.Add(score);
+
+            //Level
+            font = g.Content.Load<SpriteFont>("font/MyFont");
+            level = new Level(g, spriteBatch, font, Color.White);
+            this.Components.Add(level);
 
             //Rock
             Texture2D rockTex = g.Content.Load<Texture2D>("image/rock");
