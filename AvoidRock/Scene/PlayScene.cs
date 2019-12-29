@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AvoidRock.Scene
+namespace AvoidRock
 {
     public class PlayScene : Scenes
     {
@@ -181,6 +181,7 @@ namespace AvoidRock.Scene
 
             else
             {
+                g.gameOverScene.show();
                 this.hide();
             }
 

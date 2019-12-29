@@ -11,8 +11,9 @@ namespace AvoidRock
     {
         GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
-        public Scene.StartScene startScene;
-        public Scene.PlayScene playGame;
+        public StartScene startScene;
+        public PlayScene playGame;
+        public GameOverScene gameOverScene;
 
         private double timer = 0;
 
@@ -47,12 +48,15 @@ namespace AvoidRock
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            startScene = new Scene.StartScene(this);
+            startScene = new StartScene(this);
             this.Components.Add(startScene);
             startScene.show();
 
-            playGame = new Scene.PlayScene(this);
+            playGame = new PlayScene(this);
             this.Components.Add(playGame);
+
+            gameOverScene = new GameOverScene(this);
+            this.Components.Add(gameOverScene);
 
             // TODO: use this.Content to load your game content here
         }
@@ -89,7 +93,59 @@ namespace AvoidRock
                         startScene.hide();
                         timer = 0;
                     }
+
+                    else if (selectedIndex == 4 && ks.IsKeyDown(Keys.Enter))
+                    {
+                        Exit();
+                    }
                 }
+            }
+
+            else if (playGame.Enabled)
+            {
+                if (ks.IsKeyDown(Keys.Escape))
+                {
+                    playGame.hide();
+                    startScene.show();
+                }
+            }
+
+            else if (gameOverScene.Enabled)
+            {
+                this.Components.Remove(playGame);
+                playGame = new PlayScene(this);
+                this.Components.Add(playGame);
+
+                this.Components.Remove(startScene);
+                startScene = new StartScene(this);
+                this.Components.Add(startScene);
+
+                int gameOverSelectedIndex = 0;
+
+                gameOverSelectedIndex = gameOverScene.Menu.SelectedIndex;
+                if (gameOverSelectedIndex == 0 && ks.IsKeyDown(Keys.Enter))
+                {
+                    Shared.alive = true;
+                    Shared.level = 1;
+
+                    gameOverScene.hide();
+                    playGame.show();
+                }
+
+                else if (gameOverSelectedIndex == 1 && ks.IsKeyDown(Keys.Enter))
+                {
+                    Shared.alive = true;
+                    Shared.level = 1;
+
+                    gameOverScene.hide();
+                    startScene.show();
+                }
+
+                else if (gameOverSelectedIndex == 2 && ks.IsKeyDown(Keys.Enter))
+                {
+                    Exit();
+                }
+
             }
 
             base.Update(gameTime);

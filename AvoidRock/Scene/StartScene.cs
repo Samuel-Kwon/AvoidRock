@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AvoidRock.Scene
+namespace AvoidRock
 {
     public class StartScene : Scenes
     {
-        private Menu.StartSceneMenu menu;
+        private StartSceneMenu menu;
         private SpriteBatch spriteBatch;
         private string[] menuItems =
             { "Play",
@@ -26,10 +26,10 @@ namespace AvoidRock.Scene
             this.spriteBatch = g.spriteBatch;
             SpriteFont regularFont = g.Content.Load<SpriteFont>("font/RegularFont");
             SpriteFont hilightFont = g.Content.Load<SpriteFont>("font/HilightFont");
-            menu = new Menu.StartSceneMenu(game, spriteBatch, regularFont, hilightFont, menuItems);
+            menu = new StartSceneMenu(game, spriteBatch, regularFont, hilightFont, menuItems);
             this.Components.Add(menu);
         }
 
-        public Menu.StartSceneMenu Menu { get => menu; set => menu = value; }
+        public StartSceneMenu Menu { get => menu; set => menu = value; }
     }
 }

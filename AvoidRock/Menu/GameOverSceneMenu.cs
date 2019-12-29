@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AvoidRock
 {
-    public class StartSceneMenu : DrawableGameComponent
+    public class GameOverSceneMenu : DrawableGameComponent
     {
         private SpriteBatch spriteBatch;
         private SpriteFont regularFont, hilightFont;
@@ -22,7 +22,7 @@ namespace AvoidRock
         private KeyboardState oldState;
 
 
-        public StartSceneMenu(Game game,
+        public GameOverSceneMenu(Game game,
             SpriteBatch spriteBatch,
             SpriteFont regularFont,
             SpriteFont hilightFont,
@@ -32,7 +32,7 @@ namespace AvoidRock
             this.regularFont = regularFont;
             this.hilightFont = hilightFont;
             menuItems = menus.ToList();
-            this.position = new Vector2(Shared.stage.X / 2, Shared.stage.Y / 2);
+            this.position = new Vector2(Shared.stage.X / 4, Shared.stage.Y - 50);
         }
 
         public int SelectedIndex { get => selectedIndex; set => selectedIndex = value; }
@@ -44,17 +44,20 @@ namespace AvoidRock
             spriteBatch.Begin();
             for (int i = 0; i < menuItems.Count; i++)
             {
+                var hiSize = hilightFont.MeasureString(menuItems[i]);
+                var regSize = regularFont.MeasureString(menuItems[i]);
+
                 if (selectedIndex == i)
                 {
                     spriteBatch.DrawString(hilightFont, menuItems[i],
                         tempPos, hilightColor);
-                    tempPos.Y += hilightFont.LineSpacing;
+                    tempPos.X += hiSize.X + 10;
                 }
                 else
                 {
                     spriteBatch.DrawString(regularFont, menuItems[i],
                         tempPos, regularColor);
-                    tempPos.Y += regularFont.LineSpacing;
+                    tempPos.X += regSize.X + 10;
                 }
             }
             spriteBatch.End();
@@ -65,7 +68,7 @@ namespace AvoidRock
         public override void Update(GameTime gameTime)
         {
             KeyboardState ks = Keyboard.GetState();
-            if (ks.IsKeyDown(Keys.Down) && oldState.IsKeyUp(Keys.Down))
+            if (ks.IsKeyDown(Keys.Right) && oldState.IsKeyUp(Keys.Right))
             {
                 selectedIndex++;
                 if (selectedIndex == menuItems.Count)
@@ -73,7 +76,7 @@ namespace AvoidRock
                     selectedIndex = 0;
                 }
             }
-            if (ks.IsKeyDown(Keys.Up) && oldState.IsKeyUp(Keys.Up))
+            if (ks.IsKeyDown(Keys.Left) && oldState.IsKeyUp(Keys.Left))
             {
                 selectedIndex--;
                 if (selectedIndex == -1)
