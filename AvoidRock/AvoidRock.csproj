@@ -51,6 +51,7 @@
     <Compile Include="Objects\Rock.cs" />
     <Compile Include="Scenes.cs" />
     <Compile Include="Scene\GameOverScene.cs" />
+    <Compile Include="Scene\HelpScene.cs" />
     <Compile Include="Scene\HighScoreScene.cs" />
     <Compile Include="Scene\PlayScene.cs" />
     <Compile Include="Scene\StartScene.cs" />

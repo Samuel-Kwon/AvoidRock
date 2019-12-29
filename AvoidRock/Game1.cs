@@ -15,6 +15,7 @@ namespace AvoidRock
         public PlayScene playGame;
         public GameOverScene gameOverScene;
         public HighScoreScene highScoreScene;
+        public HelpScene helpScene;
 
         private double timer = 0;
 
@@ -62,6 +63,9 @@ namespace AvoidRock
             highScoreScene = new HighScoreScene(this);
             this.Components.Add(highScoreScene);
 
+            helpScene = new HelpScene(this);
+            this.Components.Add(helpScene);
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -106,6 +110,13 @@ namespace AvoidRock
                         timer = 0;
                     }
 
+                    else if (selectedIndex == 2 && ks.IsKeyDown(Keys.Enter))
+                    {
+                        helpScene.show();
+                        startScene.hide();
+                        timer = 0;
+                    }
+
                     else if (selectedIndex == 4 && ks.IsKeyDown(Keys.Enter))
                     {
                         Exit();
@@ -118,6 +129,15 @@ namespace AvoidRock
                 if (ks.IsKeyDown(Keys.Escape))
                 {
                     playGame.hide();
+                    startScene.show();
+                }
+            }
+
+            else if (helpScene.Enabled)
+            {
+                if (ks.IsKeyDown(Keys.Escape))
+                {
+                    helpScene.hide();
                     startScene.show();
                 }
             }
