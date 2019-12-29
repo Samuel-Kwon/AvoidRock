@@ -64,6 +64,11 @@ public class GameOverScene : Scenes
         {
             this.message = "Your Score is " + Shared.gameScore.ToString() + "!";
 
+            if (Shared.gameScore > Shared.highScore)
+            {
+                Shared.highScore = Shared.gameScore;
+            }
+
             this.levelMessage = "Level: " + Shared.level.ToString();
             fontSize = font.MeasureString(message);
             base.Update(gameTime);
