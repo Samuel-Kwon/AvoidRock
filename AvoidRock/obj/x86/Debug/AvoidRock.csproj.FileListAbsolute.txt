@@ -28,3 +28,5 @@ C:\Users\USER\Downloads\git\AvoidRock\AvoidRock\bin\Windows\x86\Debug\Content\fo
 C:\Users\USER\Downloads\git\AvoidRock\AvoidRock\bin\Windows\x86\Debug\Content\font\RegularFont.xnb
 C:\Users\USER\Downloads\git\AvoidRock\AvoidRock\bin\Windows\x86\Debug\Content\image\hero.xnb
 C:\Users\USER\Downloads\git\AvoidRock\AvoidRock\bin\Windows\x86\Debug\Content\image\rock.xnb
+C:\Users\USER\Downloads\git\AvoidRock\AvoidRock\bin\Windows\x86\Debug\Content\sound\background.wma
+C:\Users\USER\Downloads\git\AvoidRock\AvoidRock\bin\Windows\x86\Debug\Content\sound\background.xnb
