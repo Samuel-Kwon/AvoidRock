@@ -30,3 +30,7 @@ C:\Users\USER\Downloads\git\AvoidRock\AvoidRock\bin\Windows\x86\Debug\Content\im
 C:\Users\USER\Downloads\git\AvoidRock\AvoidRock\bin\Windows\x86\Debug\Content\image\rock.xnb
 C:\Users\USER\Downloads\git\AvoidRock\AvoidRock\bin\Windows\x86\Debug\Content\sound\background.wma
 C:\Users\USER\Downloads\git\AvoidRock\AvoidRock\bin\Windows\x86\Debug\Content\sound\background.xnb
+C:\Users\USER\Downloads\git\AvoidRock\AvoidRock\bin\Windows\x86\Debug\AvoidRock.exe.manifest
+C:\Users\USER\Downloads\git\AvoidRock\AvoidRock\bin\Windows\x86\Debug\AvoidRock.application
+C:\Users\USER\Downloads\git\AvoidRock\AvoidRock\obj\x86\Debug\AvoidRock.exe.manifest
+C:\Users\USER\Downloads\git\AvoidRock\AvoidRock\obj\x86\Debug\AvoidRock.application
